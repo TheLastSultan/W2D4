@@ -7,11 +7,20 @@ end
 
 def second_anagram?(string1, string2)
   str1 = string1.split("")
-  str1.each do |letter| 
-    idx = string2.index(letter) 
-    str1.delete(letter) unless idx.nil?
+  matched = 0
+  str1.each do |letter|
+    matched += 1 if string2.index(letter) != nil
   end 
-  print str1
+  matched == string2.length
 end 
 
-p second_anagram?("elvis","lives")
+
+
+def third_anagram?(string1, string2)
+  string1.sort == string2.sort
+end 
+
+def fourth_anagram?(string1, string2)
+  alphabet = ("a".."z").to_a
+  string1.split("").map{|el| alphabet.count(el)} == string2.split("").map{|el| alphabet.count(el)}
+end 
